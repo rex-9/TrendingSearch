@@ -1,8 +1,8 @@
-<section class="flex justify-center h-10 items-center">
+<section class="flex justify-center h-10 items-center bg-navBg text-navText w-screen">
   <nav class="flex justify-end gap-8 w-[80%]">
     <% if current_user %>
       <%= current_user.username %>
-      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo: :false } %>
+      <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo: :false }, class: "hover:text-black" %>
     <% else %>
       <p class="<%= 'text-red-400' if current_page?(new_user_session_path) %>">
         <%= link_to "Sign In", new_user_session_path %>
