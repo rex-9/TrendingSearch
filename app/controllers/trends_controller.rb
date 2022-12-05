@@ -3,15 +3,15 @@ class TrendsController < ApplicationController
 
   def index
     @trends = if params[:query].present?
-                Trend.where('lower(keyword) LIKE ?', "%#{params[:query].downcase}%").order(:searches).reverse
+                Trend.where('lower(keyword) LIKE ?', "%#{params[:query].downcase}%").order(:popularity).reverse
               else
-                Trend.all.order(:searches).reverse
+                current_user.trends.order(:popularity).reverse
               end
 
     if !!( params[:query] =~ /^[A-Z][a-zA-Z0-9\s]*[.?!]$/ )
       existing = Trend.where('lower(keyword) LIKE ?', "%#{params[:query].downcase}%").first
       if existing
-        existing.increment!(:searches)
+        existing.increment!(:popularity)
       else
         newTrend = Trend.create(keyword: params[:query])
         UserTrend.create(user_id: current_user.id, trend_id: newTrend.id)
@@ -28,6 +28,6 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    @trend.update_attribute(:searches, @trend.searches + 1)
+    @trend.update_attribute(:popularity, @trend.popularity + 1)
   end
 end
