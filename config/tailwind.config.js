@@ -11,8 +11,7 @@ module.exports = {
     extend: {
       colors: {
         bg: '#1E1E1E',
-        navBg: '#D9D9D9',
-        navText: '#6C5DD3',
+        primary: '#6C5DD3',
         input: '#FFA2C0',
         hover: '#13121B',
       },

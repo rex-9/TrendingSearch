@@ -46,6 +46,19 @@ RSpec.describe 'Sign up', type: :feature do
       expect(page).to have_content "Password confirmation doesn't match Password"
     end
 
+    it 'displays an error when Username is already taken' do
+      User.create(
+        username: 'Rex',
+        password: 'password'
+      )
+      visit new_user_registration_path
+      fill_in 'Username', with: 'Rex'
+      fill_in 'Password', with: 'password'
+      fill_in 'Password confirmation', with: 'password'
+      click_button 'Sign up'
+      expect(page).to have_content "Username has already been taken"
+    end
+
     it 'successfully Sign up' do
       visit new_user_registration_path
       fill_in 'Username', with: 'Rex'

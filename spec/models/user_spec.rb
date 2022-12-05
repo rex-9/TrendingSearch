@@ -15,6 +15,11 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it 'Username is INVALID (should not be more than 25 characters)' do
+    subject.username = 'Rxxxxxxxxxxxxxxxxxxxxxxxxx'
+    expect(subject).to_not be_valid
+  end
+
   it 'Username is VALID (more than 3 characters)' do
     subject.username = 'Rex'
     expect(subject).to be_valid
