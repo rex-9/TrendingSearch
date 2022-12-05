@@ -25,5 +25,13 @@ RSpec.describe Trend, type: :model do
     expect(subject).to be_valid
   end
 
-  # Invalid Test Cases are in the Controller Spec
+  it 'Keyword is INVALID' do
+    subject.keyword = 'why is Elden Ring!'
+    expect(subject).to_not be_valid
+  end
+
+  it 'Keyword is INVALID' do
+    subject.keyword = 'hello'
+    expect(subject).to_not be_valid
+  end
 end
