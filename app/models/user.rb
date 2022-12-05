@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :user_trends
   has_many :trends, through: :user_trends
 
-  validates :username, presence: true, length: { minimum: 3, maximum: 25 }
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3, maximum: 25 }
   validates :password, presence: true, length: { minimum: 6 }
   validates_confirmation_of :password
 end
