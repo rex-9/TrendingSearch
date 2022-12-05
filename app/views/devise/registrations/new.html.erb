@@ -1,22 +1,24 @@
-<section class="w-80">
-  <h2 class="flex justify-center font-bold text-xl">Sign up</h2>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "block input w-full" %>
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
+<section class="flex justify-center">
+  <div class="w-80">
+    <h2 class="flex justify-center font-bold text-xl">Sign up</h2>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
+      <%= f.label :username %>
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "block input w-full" %>
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "block input w-full" %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block input w-full" %>
+      <div class="flex justify-center btn">
+        <%= f.submit "Sign up" %>
+      </div>
     <% end %>
-    <%= f.password_field :password, autocomplete: "new-password", class: "block input w-full" %>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "block input w-full" %>
-    <div class="flex justify-center btn">
-      <%= f.submit "Sign up" %>
+    <div class="flex justify-center gap-4 items-center mt-4">
+      <span class="text-sm">Already have an account?</span>
+      <%= render "devise/shared/links" %>
     </div>
-  <% end %>
-  <div class="flex justify-center gap-4 items-center mt-4">
-    <span class="text-sm">Already have an account?</span>
-    <%= render "devise/shared/links" %>
   </div>
 </section>
