@@ -1,6 +1,7 @@
 <%= turbo_frame_tag "trends" do %>
   <% trends.each do |trend| %>
     <%= link_to trend.keyword, trend_path(trend.id), class: "underline text-red-300" %>
+    <%= trend.searches %>
     <br>
   <% end %>
 <% end %>
