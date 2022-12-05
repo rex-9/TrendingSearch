@@ -1,7 +1,12 @@
-<%= turbo_frame_tag "trends" do %>
-  <% trends.each do |trend| %>
-    <%= link_to trend.keyword, trend_path(trend.id), class: "underline text-red-300" %>
-    <%= trend.popularity %>
-    <br>
+<div class="w-[500px]">
+  <%= turbo_frame_tag "trends" do %>
+    <% trends.each do |trend| %>
+      <div class="flex justify-between px-4 py-2 bg-input/80 text-white hover:bg-input/40">
+        <span class="w-full ">
+          <%= link_to trend.keyword, trend_path(trend.id) %>
+        </span>
+        <%= trend.popularity %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

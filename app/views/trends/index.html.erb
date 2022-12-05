@@ -1,11 +1,10 @@
-<section>
-  <h1>Trends</h1>
+<section class="w-[500px]">
   <%= form_with(url: root_path, method: :get, data: {controller: "search-form", turbo_frame: "trends", turbo_action: "advance"}) do |form| %>
-    <%= form.label :query, "Search by trend keyword:", class: "block mb-2" %>
-    <div class="flex space-x-3">
-      <%= form.text_field :query, data: {action: "input->search-form#search"}, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none" %>
-      <%= form.submit 'Search', class: "px-4 py-3 font-medium
-  bg-orange-300 text-neutal-900 rounded flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
+    <div class="flex bg-white justify-between space-x-3 rounded-lg">
+      <%= form.text_field :query, data: {action: "input->search-form#search"}, class: "rounded-lg font-bold w-[90%] border-0 focus:bg-black/50" %>
+      <div class="flex justify-center">
+      <%= image_submit_tag "lens.svg", class: "cursor-pointer py-2 mr-4" %>
+      </div>
     </div>
   <% end %>
   <%= render 'trends', trends: @trends %>

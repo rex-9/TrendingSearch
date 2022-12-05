@@ -1,19 +1,22 @@
-<section>
-  <h2>Log in</h2>
+<section class="w-80">
+  <h2 class="flex justify-center font-bold text-xl">Log in</h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
     <%= f.label :username %>
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "block" %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "block input w-full" %>
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: "current-password", class: "block" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "block input w-full" %>
     <% if devise_mapping.rememberable? %>
       <div class="field">
         <%= f.check_box :remember_me %>
         <%= f.label :remember_me %>
       </div>
     <% end %>
-    <div class="flex justify-center">
+    <div class="flex justify-center btn">
       <%= f.submit "Log in" %>
     </div>
   <% end %>
-  <%= render "devise/shared/links" %>
+  <div class="flex justify-center gap-4 items-center mt-4">
+    <span class="text-sm">Don't have an account?</span>
+    <%= render "devise/shared/links" %>
+  </div>
 </section>

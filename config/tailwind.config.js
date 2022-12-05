@@ -9,8 +9,16 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        bg: '#1E1E1E',
+        navBg: '#D9D9D9',
+        navText: '#6C5DD3',
+        input: '#FFA2C0',
+        hover: '#13121B',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        quicksand: ['Quicksand', 'sans-serif'],
       },
     },
   },
