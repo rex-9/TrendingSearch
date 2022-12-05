@@ -4,7 +4,7 @@
       <div class="flex bg-white justify-between space-x-3 rounded-lg">
         <%= form.text_field :query, data: {action: "input->search-form#search"}, class: "rounded-lg font-bold w-[90%] border-0 focus:bg-black/50" %>
         <div class="flex justify-center">
-          <%= image_submit_tag "lens.svg", class: "cursor-pointer py-2 mr-4" %>
+          <%= image_submit_tag "lens.svg", alt: "lens", class: "cursor-pointer py-2 mr-4" %>
         </div>
       </div>
     <% end %>
