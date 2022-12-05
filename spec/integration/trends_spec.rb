@@ -13,7 +13,7 @@ RSpec.describe 'Trends', type: :system, js: true do
       @user = User.create(username: 'Rex', password: 'password')
       sign_in @user
 
-      @trend = Trend.create(keyword: "What is Ruby on Rails?")
+      @trend = Trend.create(keyword: 'What is Ruby on Rails?')
       visit root_path
     end
 
