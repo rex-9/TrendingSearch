@@ -9,18 +9,6 @@ RSpec.describe 'Trends', type: :system, js: true do
       fill_in 'Username', with: 'Rex'
       fill_in 'Password', with: 'password'
       click_button 'Log in'
-      # visit new_user_registration_path
-      # fill_in "Username",              :with => "Hello"
-      # fill_in "Password",              :with => "password"
-      # fill_in "Password confirmation", :with => "password"
-
-      # click_button "Sign up"
-
-      # @user = User.create(username: 'Rex', password: 'password')
-      # sign_in @user
-
-      # @trend = Trend.create(keyword: 'What is Ruby on Rails?')
-      # visit root_path
     end
 
     it 'renders Name of the Webpage' do
