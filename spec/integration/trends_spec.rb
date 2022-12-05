@@ -20,7 +20,7 @@ RSpec.describe 'Trends', type: :system, js: true do
     end
 
     it 'renders Icon of the Magnifying glass' do
-      expect(page).to have_css("#lens")
+      expect(page).to have_css('#lens')
     end
 
     it 'renders Name of the Trend searched by the User' do
