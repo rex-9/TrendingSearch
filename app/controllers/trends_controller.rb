@@ -8,7 +8,7 @@ class TrendsController < ApplicationController
                 current_user.trends.order(:popularity).reverse
               end
 
-    if !!( params[:query] =~ /^[A-Z][a-zA-Z0-9\s]*[.?!]$/ )
+    unless (params[:query] =~ /^[A-Z][a-zA-Z0-9\s]*[.?!]$/).nil?
       existing = Trend.where('lower(keyword) LIKE ?', "%#{params[:query].downcase}%").first
       if existing
         existing.increment!(:popularity)
