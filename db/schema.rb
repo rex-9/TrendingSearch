@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_035829) do
 
   create_table "trends", force: :cascade do |t|
     t.string "keyword", null: false
-    t.integer "searches", default: 0
+    t.integer "searches", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

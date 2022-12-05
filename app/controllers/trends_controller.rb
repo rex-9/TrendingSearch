@@ -25,8 +25,6 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    @trend.increment!(:searches)
+    @trend.update_attribute(:searches, @trend.searches + 1)
   end
-
-  def destroy; end
 end
