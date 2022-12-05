@@ -13,8 +13,8 @@ class TrendsController < ApplicationController
       if existing
         existing.increment!(:popularity)
       else
-        newTrend = Trend.create(keyword: params[:query])
-        UserTrend.create(user_id: current_user.id, trend_id: newTrend.id)
+        new_trend = Trend.create(keyword: params[:query])
+        UserTrend.create(user_id: current_user.id, trend_id: new_trend.id)
         flash[:notice] = 'New Trend Recorded.'
       end
     end
