@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+User.create(username: "Rex", password: "password")
+User.create(username: "Pu2", password: "password")
+
 Trend.create(keyword: "What is Ruby on Rails?")
 Trend.create(keyword: "How old is Emil?")
 Trend.create(keyword: "Will Rex have a chance to get hired by Helpjuice?")
