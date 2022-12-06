@@ -9,7 +9,7 @@ module AuthHelper
 
   def login_admin
     @user = User.create(username: 'Admin', password: 'password', role: 'admin')
-    visit user_session_path
+    visit new_user_session_path
     fill_in 'Username', with: 'Admin'
     fill_in 'Password', with: 'password'
     click_button 'Log in'

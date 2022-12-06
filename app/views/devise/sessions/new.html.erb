@@ -3,9 +3,9 @@
     <h2 class="flex justify-center font-bold text-xl">Log in</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
       <%= f.label :username %>
-      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "block input w-full" %>
+      <%= f.text_field :username, autofocus: true, class: "block input w-full" %>
       <%= f.label :password %>
-      <%= f.password_field :password, autocomplete: "current-password", class: "block input w-full" %>
+      <%= f.password_field :password, class: "block input w-full" %>
       <% if devise_mapping.rememberable? %>
         <div class="field">
           <%= f.check_box :remember_me %>

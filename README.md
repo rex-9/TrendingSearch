@@ -80,7 +80,7 @@
 
 ### Video Presentation <a name="video-presentation"></a>
 
-- [Video Demo](https://www.loom.com/share/13be355568724ca6b5d8948f1ad2b7e9)
+- [Video Demo](https://www.loom.com/share/4bcd220ea5bf47b6a64bdc6f5dea1dc9)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -12,9 +12,12 @@ class TrendsController < ApplicationController
       existing = Trend.where('lower(keyword) LIKE ?', "%#{params[:query].downcase}%").first
       if existing
         existing.increment!(:popularity)
+        existing_join = UserTrend.find_by(user_id: current_user.id, trend_id: existing.id)
+        UserTrend.create(user_id: current_user.id, trend_id: existing.id) unless existing_join
       else
         new_trend = Trend.create(keyword: params[:query])
-        UserTrend.create(user_id: current_user.id, trend_id: new_trend.id)
+        existing_join = UserTrend.find_by(user_id: current_user.id, trend_id: new_trend.id)
+        UserTrend.create(user_id: current_user.id, trend_id: new_trend.id) unless existing_join
         flash[:notice] = 'New Trend Recorded.'
       end
     end
