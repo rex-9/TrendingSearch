@@ -1,7 +1,7 @@
 class TrendsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
+  def search
     @trends = if params[:query].present?
                 Trend.where('lower(keyword) LIKE ?', "%#{params[:query].downcase}%").order(:popularity).reverse
               else

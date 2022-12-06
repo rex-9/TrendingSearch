@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   get "/trends/:id/users", to: "admin#trend_users"
 
   # Defines the root path route ("/")
-  root "trends#index"
+  root to: "trends#search"
 end
