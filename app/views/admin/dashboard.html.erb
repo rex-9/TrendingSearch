@@ -1,9 +1,15 @@
 <section class="flex flex-col h-screen" x-data="{ open: true }">
   <%= render 'partials/nav' %>
   <div class="flex h-full">
-    <div class="bg-black/40 h-full w-96 pl-12 pt-8">
-      <button @click="open = true" class="mt-8 block underline hover:text-white/40">Users</button>
-      <button @click="open = false" class="mt-8 block underline hover:text-white/40">Trends</button>
+    <div class="bg-black/40 h-full w-64 pt-12">
+        <button @click="open = true" class="pr-8 h-12 mt-2 flex items-center justify-center gap-8 hover:bg-black/30 w-full">
+          <%= image_tag "users.svg" %>
+          Users
+        </button>
+        <button @click="open = false" class="pr-8 h-12 mt-2 flex items-center justify-center gap-8 hover:bg-black/30 w-full">
+          <%= image_tag "trend.svg" %>
+          Trends
+        </button>
     </div>
     <div class="flex-1 flex overflow-hidden">
       <div class="flex-1 overflow-y-scroll">

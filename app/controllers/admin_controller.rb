@@ -16,8 +16,8 @@ class AdminController < ApplicationController
   end
 
   def trend_users
-    trend = Trend.find(params[:id])
-    @users = trend.users.order(:id)
+    @trend = Trend.find(params[:id])
+    @users = @trend.users.order(:id)
     if current_user.role != 'admin'
       redirect_to root_path
     end
