@@ -65,7 +65,15 @@
 ### Key Features <a name="key-features"></a>
 
 - **Search Trends (ordered by Popularity Points)**
-- **Record Trend as soon as the input has become a sentence**
+- **Display Trends in Real Time while typing in the input**
+- **Record Trend as soon as the input has become a sentence (+1 Popularity Point)**
+- **Click the Trend and visit the topic (+2 Popularity Points)**
+- **Admin Feature**
+    - **Authorization**
+    - **Routes Authorization**
+    - **Admin Dashboard**
+    - **Display the analytics of all Users and the Trends searched by them**
+    - **Display the analytics of all Trends and the Users who are interested in that Topic**
 - **Sign In**
 - **Sign Up**
 - **Sign Out**

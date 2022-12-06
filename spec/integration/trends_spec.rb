@@ -1,14 +1,13 @@
 require 'rails_helper'
+require 'helpers/auth_helper'
 
 RSpec.describe 'Trends', type: :system, js: true do
-  describe 'index page' do
+  include AuthHelper
+
+  describe 'Home page' do
     before(:example) do
       @trend = Trend.create(keyword: 'What is Ruby on Rails?')
-      @user = User.create(username: 'Rex', password: 'password')
-      visit user_session_path
-      fill_in 'Username', with: 'Rex'
-      fill_in 'Password', with: 'password'
-      click_button 'Log in'
+      login_user
     end
 
     it 'renders Name of the Webpage' do
@@ -34,6 +33,18 @@ RSpec.describe 'Trends', type: :system, js: true do
     it 'redirects to Trend path when a keyword is clicked' do
       click_on @trend.keyword
       expect(page).to have_current_path(trend_path(1))
+    end
+  end
+
+  describe 'Show page' do
+    before(:example) do
+      @trend = Trend.create(keyword: 'What is Ruby on Rails?')
+      login_user
+      click_on @trend.keyword
+    end
+
+    it 'renders Major content of the Show Page' do
+      expect(page).to have_content('Hehe!')
     end
   end
 end
