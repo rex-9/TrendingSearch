@@ -2,7 +2,7 @@
   <div class="w-[500px]">
     <%= form_with(url: root_path, method: :get, data: {controller: "search-form", turbo_frame: "trends", turbo_action: "advance"}) do |form| %>
       <div class="flex justify-between bg-input space-x-3 rounded-lg">
-        <%= form.text_field :query, data: {action: "input->search-form#search"}, class: "input rounded-lg rounded-r-none font-bold w-[90%] border-0 focus:bg-black/50" %>
+        <%= form.text_field :query, id: "Surf", placeholder: "Surf through Web Arena", data: {action: "input->search-form#search"}, class: "input rounded-lg rounded-r-none font-bold w-[90%] border-0 focus:bg-black/50" %>
         <div id="lens" class="flex justify-center">
           <%= image_submit_tag "lens.svg", class: "cursor-pointer py-2 mr-4" %>
         </div>

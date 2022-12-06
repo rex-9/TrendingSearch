@@ -7,7 +7,6 @@ RSpec.describe 'Admin', type: :system, js: true do
   describe 'Everything Users can do' do
     describe 'Home Page' do
       before(:example) do
-        @trend = Trend.create(keyword: 'What is Ruby on Rails?')
         login_admin
       end
 
@@ -24,7 +23,7 @@ RSpec.describe 'Admin', type: :system, js: true do
       end
 
       it 'renders Name of the Trend searched by the User' do
-        expect(page).to have_content(@trend.keyword)
+        expect(page).to have_content('What is Ruby on Rails?')
       end
 
       it 'renders Popularity Point of the Trend' do
@@ -32,16 +31,15 @@ RSpec.describe 'Admin', type: :system, js: true do
       end
 
       it 'redirects to Trend path when a keyword is clicked' do
-        click_on @trend.keyword
+        click_on 'What is Ruby on Rails?'
         expect(page).to have_current_path(trend_path(1))
       end
     end
 
     describe 'show page' do
       before(:example) do
-        @trend = Trend.create(keyword: 'What is Ruby on Rails?')
-        login_user
-        click_on @trend.keyword
+        login_admin
+        click_on 'What is Ruby on Rails?'
       end
 
       it 'renders Major content of the Show Page' do
@@ -51,7 +49,6 @@ RSpec.describe 'Admin', type: :system, js: true do
 
     describe 'Admin Dashboard' do
       before(:example) do
-        @trend = Trend.create(keyword: 'What is Ruby on Rails?')
         login_admin
         click_on 'Dashboard'
       end
@@ -70,11 +67,25 @@ RSpec.describe 'Admin', type: :system, js: true do
       end
 
       it 'redirect to the UserTrends page when clicked on the Username' do
-        click_on 'Admin'
-        expect(page).to have_current_path(user_trends_path(1))
+        click_link 'Admin'
+        expect(page).to have_current_path('/users/1/trends')
       end
 
-      it 'redirect to the UserTrends page when clicked on the Username' do
+      it 'renders The Header of TrendUsers when clicked on the Username' do
+        click_link 'Admin'
+        expect(page).to have_content('Trends searched by')
+      end
+
+      it 'renders The Header of TrendUsers when clicked on the Username' do
+        click_link 'Admin'
+        expect(page).to have_content('Trends searched by')
+        expect(page).to have_content('ID')
+        expect(page).to have_content('Keyword')
+        expect(page).to have_content('Popularity')
+        expect(page).to have_content('Total Users')
+      end
+
+      it 'render the contents of UserTrends page' do
         visit user_trends_path(1)
         expect(page).to have_content('Trends searched by')
         expect(page).to have_content('ID')
@@ -93,11 +104,25 @@ RSpec.describe 'Admin', type: :system, js: true do
 
       it 'redirect to the TrendUsers page when clicked on the Keyword' do
         click_button 'Trends'
-        click_on @trend.keyword
+        click_on 'What is Ruby on Rails?'
         expect(page).to have_current_path(trend_users_path(1))
       end
 
-      it 'redirect to the UserTrends page when clicked on the Username' do
+      it 'renders The Header of TrendUsers when clicked on Keyword' do
+        click_button 'Trends'
+        click_on 'What is Ruby on Rails?'
+        expect(page).to have_content('Users who are interested in the Topic')
+      end
+
+      it 'renders The Header of TrendUsers when clicked on Keyword' do
+        click_button 'Trends'
+        click_on 'What is Ruby on Rails?'
+        expect(page).to have_content('ID')
+        expect(page).to have_content('Username')
+        expect(page).to have_content('Total Trends')
+      end
+
+      it 'contents of the UserTrends page' do
         visit trend_users_path(1)
         expect(page).to have_content('Users who are interested in the Topic')
         expect(page).to have_content('ID')

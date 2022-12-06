@@ -18,7 +18,7 @@
       - [3. Set up the database with your credentials:](#3-set-up-the-database-with-your-credentials)
       - [4. Create the databases:](#4-create-the-databases)
       - [5. Migrate the databases:](#5-migrate-the-databases)
-      - [6. Seed the dummy data: (Optional)](#6-seed-the-dummy-data-optional)
+      - [6. Seed the dummy data: (Necessary for Admin)](#6-seed-the-dummy-data-necessary-for-admin)
       - [6. Install NPM packages:](#6-install-npm-packages)
       - [7. Build and Watch Tailwindcss:](#7-build-and-watch-tailwindcss)
     - [Usage](#usage)
@@ -86,20 +86,37 @@
 
 ### Screenshots <a name="screenshots"></a>
 
-- **Public URLs Page**
-- [Public URLs Page](./app/assets/images/public.png)
+- **Search Page (Originally display the result of the Recent Searches of the Current User)**
+- [Search Page](./app/assets/images/search.png)
+
+- **Search Page (Searching throughout the input field. Kindly notice the Route)**
+- [Search Page 2](./app/assets/images/search2.png)
+
+- **Search Page (Global Trending Searches across the Server, NOT the Trend of the Current User)**
+- [Search Page 3](./app/assets/images/search3.png)
+
+- **Admin Dashboard (Log in with username: "Admin" and password: "Password")**
+
+    - **Users Table**
+    - [Users Table](./app/assets/images/dashboard-users.png)
+
+    - **Trends Table**
+    - [Trends Table](./app/assets/images/dashboard-trends.png)
+
+    - **Trends searched by the User**
+    - [User Trends Table](./app/assets/images/user-trends.png)
+
+    - **Users who are interested in the specific Trend**
+    - [Trend Users Table](./app/assets/images/trend-users.png)
 
 - **Sign In Page**
-- [Sign In Page](./app/assets/images/sign-in.png)
+- [Sign In Page](./app/assets/images/signin.png)
 
 - **Sign Up Page**
-- [Public URL](./app/assets/images/sign-up.png)
+- [Sign Up Page](./app/assets/images/signup.png)
 
-- **Create Chibi URL Page**
-- [Public URL](./app/assets/images/create.png)
-
-- **My URLs Page**
-- [Public URL](./app/assets/images/my.png)
+- **52 Test cases**
+- [Test Results](./app/assets/images/tests.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,7 +174,7 @@ rails db:create
 rails db:migrate
 ```
 
-#### 6. Seed the dummy data: (Optional)
+#### 6. Seed the dummy data: (Necessary for Admin)
 
 ```
 rails db:seed

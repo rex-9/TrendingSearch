@@ -1,7 +1,7 @@
 module AuthHelper
   def login_user
     @user = User.create(username: 'Rex', password: 'password')
-    visit user_session_path
+    visit new_user_session_path
     fill_in 'Username', with: 'Rex'
     fill_in 'Password', with: 'password'
     click_button 'Log in'
