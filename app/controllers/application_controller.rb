@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  def create_join(user_id, trend_id)
+    existing = UserTrend.find_by(user_id:, trend_id:)
+    UserTrend.create(user_id:, trend_id:) unless existing
+  end
+
   protected
 
   def configure_permitted_parameters
