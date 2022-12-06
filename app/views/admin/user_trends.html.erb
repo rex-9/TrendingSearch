@@ -1,6 +1,7 @@
 Trends of the USER
 <% @trends.each do |trend| %>
   <div>
+    <span class=""><%= trend.id %></span>
     <span class=""><%= trend.keyword %></span>
     <span class=""><%= trend.popularity %></span>
   </div>
