@@ -1,9 +1,7 @@
-Trends of the
-<%= @user.username %>
-<% @trends.each do |trend| %>
+<h1 class="flex justify-center text-center mt-4">
   <div>
-    <span class=""><%= trend.id %></span>
-    <span class=""><%= trend.keyword %></span>
-    <span class=""><%= trend.popularity %></span>
+    <p>Trends searched by</p>
+    <p class="font-bold text-xl"><%= @user.username %></p>
   </div>
-<% end %>
+</h1>
+<%= render 'partials/table', objects: @trends, attributes: ["ID", "Keyword", "Popularity", "Total Users"], model: "Trend" %>

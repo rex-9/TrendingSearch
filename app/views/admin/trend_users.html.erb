@@ -1,8 +1,7 @@
-Users who are interested in the Topic
-<%= @trend.keyword %>
-<% @users.each do |user| %>
+<h1 class="flex justify-center text-center mt-4">
   <div>
-    <span class=""><%= user.id %></span>
-    <span class=""><%= user.username %></span>
+    <p>Users who are interested in the Topic</p>
+    <p class="font-bold text-xl"><%= @trend.keyword %></p>
   </div>
-<% end %>
+</h1>
+<%= render 'partials/table', objects: @users, attributes: ["ID", "Username", "Total Trends"], model: "User" %>

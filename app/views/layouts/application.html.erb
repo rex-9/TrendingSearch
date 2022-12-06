@@ -13,8 +13,8 @@
   <body class="bg-bg text-white">
     <div class="flex justify-center w-full px-5 font-quicksand">
       <div>
-        <% if !current_page?('/dashboard') %>
-          <%= render 'partials/nav' %>
+        <%= render 'partials/nav' %>
+        <% if current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
           <div class="flex flex-col items-center p-4 mt-12">
             <%= image_tag("logo.png", class: "h-28") %>
             <h1 class="text-text font-bold text-3xl">Web Arena</h1>
