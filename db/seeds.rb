@@ -11,7 +11,7 @@ User.create(username: "Rex", password: "password")
 User.create(username: "Sasa", password: "password")
 
 Trend.create(keyword: "What is Ruby on Rails?")
-Trend.create(keyword: "How old is Emil?")
+Trend.create(keyword: "How handsome is Emil?")
 Trend.create(keyword: "Will Rex have a chance to get hired by Helpjuice?")
 
 UserTrend.create(user_id: 2, trend_id: 1)

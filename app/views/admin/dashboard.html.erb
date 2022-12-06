@@ -1,0 +1,19 @@
+<section class="flex flex-col h-screen" x-data="{ open: true }">
+  <%= render 'partials/nav' %>
+  <div class="flex h-full">
+    <div class="bg-black/40 h-full w-96 pl-12 pt-8">
+      <button @click="open = true" class="mt-8 block underline hover:text-white/40">Users</button>
+      <button @click="open = false" class="mt-8 block underline hover:text-white/40">Trends</button>
+    </div>
+    <div class="flex-1 flex overflow-hidden">
+      <div class="flex-1 overflow-y-scroll">
+        <div x-show="open">
+          <%= render 'partials/users' %>
+        </div>
+        <div x-show="!open">
+          <%= render 'partials/trends' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

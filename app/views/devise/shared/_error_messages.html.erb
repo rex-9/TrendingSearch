@@ -6,7 +6,7 @@
                  resource: resource.class.model_name.human.downcase)
        %>
     </h2>
-    <ul class="bg-red-200 border-gray-orange-200 border-2 text-red-900 w-fit rounded-lg px-4 py-1 font-bold mb-4 mt-4">
+    <ul class="text-red-500 w-fit rounded-lg font-bold mb-2">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

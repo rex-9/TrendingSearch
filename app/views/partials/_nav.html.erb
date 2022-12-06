@@ -1,7 +1,15 @@
-<section class="flex justify-center h-10 items-center text-primary w-screen">
+<section class="flex justify-center h-10 items-center text-primary w-screen bg-black/40">
   <nav class="flex justify-end gap-8 w-[80%] font-bold">
     <% if current_user %>
       <%= current_user.username %>
+      <% if current_user.role == 'admin' %>
+        <p class="<%= 'text-red-400' if current_page?('/dashboard') %>">
+          <%= link_to "Dashboard", "/dashboard", class: "hover:text-red-400" %>
+        </p>
+        <p class="<%= 'text-red-400' if current_page?(root_path) %>">
+          <%= link_to "Search", root_path, class: "hover:text-red-400" %>
+        </p>
+      <% end %>
       <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: { turbo: :false }, class: "hover:text-red-400" %>
     <% else %>
       <p class="<%= 'text-red-400' if current_page?(new_user_session_path) %>">

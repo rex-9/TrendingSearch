@@ -44,6 +44,7 @@
   <ul>
     <li><a href="https://rubyonrails.org/">Ruby on Rails</a></li>
     <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
+    <li><a href="https://alpinejs.dev/">AlpineJS</a></li>
   </ul>
 </details>
 

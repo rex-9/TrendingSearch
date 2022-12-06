@@ -28,6 +28,8 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    @trend.update_attribute(:popularity, @trend.popularity + 1)
+    @trend.increment!(:popularity)
+    existing = UserTrend.find_by(user_id: current_user.id, trend_id: @trend.id)
+    UserTrend.create(user_id: current_user.id, trend_id: @trend.id) unless existing
   end
 end
