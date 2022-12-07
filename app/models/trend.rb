@@ -3,6 +3,7 @@ class Trend < ApplicationRecord
   has_many :users, through: :user_trends
 
   validates :keyword, presence: true,
+                      uniqueness: true,
                       format: {
                         multiline: true, with: /^[A-Z][a-zA-Z0-9\s]*[.?!]$/,
                         message: 'please enter keywords in correct format'
