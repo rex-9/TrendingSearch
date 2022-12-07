@@ -85,6 +85,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV["DATABASE_URL"] %>
   database: WebArena_production
   username: WebArena
   password: <%= ENV["WebArena_DATABASE_PASSWORD"] %>
