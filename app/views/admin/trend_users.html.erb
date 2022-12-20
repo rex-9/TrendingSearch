@@ -1,0 +1,7 @@
+<h1 class="flex justify-center text-center mt-4">
+  <div>
+    <p>Users who are interested in the Topic</p>
+    <p class="font-bold text-xl"><%= @trend.keyword %></p>
+  </div>
+</h1>
+<%= render 'partials/table', objects: @users, attributes: ["ID", "Username", "Total Trends"], model: "User" %>

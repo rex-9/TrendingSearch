@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .input {
+    @apply bg-input rounded-lg w-full focus:bg-input/60;
+  }
+
+  .btn {
+    @apply bg-primary text-white rounded-lg w-full py-2 hover:bg-primary/60 mt-4 cursor-pointer;
+  }
+}
+
+/* Change Autocomplete styles in Chrome */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid rgba(255, 163, 192, 0.5);
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0 1000px rgba(255, 163, 192, 0.5) inset;
+  box-shadow: 0 0 0 1000px rgba(255, 163, 192, 0.5) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

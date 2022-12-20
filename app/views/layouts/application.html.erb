@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebArena</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="bg-bg text-white">
+    <div class="flex justify-center w-full px-5 font-quicksand">
+      <div>
+        <%= render 'partials/nav' %>
+        <% unless current_user&.role == 'admin' && !current_page?(root_path) %>
+          <div class="flex flex-col items-center p-4 mt-12">
+            <%= image_tag("logo.png", class: "h-28") %>
+            <h1 class="text-text font-bold text-3xl">Web Arena</h1>
+          </div>
+        <% end %>
+        <div class="fixed -z-10 -top-44 -left-24">
+          <%= image_tag("tl.png") %>
+        </div>
+        <div class="fixed -z-10 -top-40 right-0">
+          <%= image_tag("tr.png") %>
+        </div>
+        <div class="fixed -z-10 bottom-0 left-0">
+          <%= image_tag("bl.png") %>
+        </div>
+        <div class="fixed -z-10 bottom-0 right-0">
+          <%= image_tag("br.png") %>
+        </div>
+        <% if notice %>
+          <div class="flex justify-center">
+            <p class="text-green-400 w-fit rounded-lg font-bold mb-4"><%= notice %></p>
+          </div>
+        <% end %>
+        <% if alert %>
+          <div class="flex justify-center">
+            <p class="text-red-500 w-fit rounded-lg font-bold mb-2"><%= alert %></p>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>
