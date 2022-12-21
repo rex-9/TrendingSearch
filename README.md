@@ -31,9 +31,9 @@
   - [❓ FAQ ](#-faq-)
   - [📝 License ](#-license-)
 
-# 📖 [Web Arena] <a name="about-project"></a>
+# 📖 Web Arena <a name="about-project"></a>
 
-**[Web Arena]** - search Trends in Real Time.
+**Web Arena** - search Trends in Real Time.
 
 ## 🛠 Built With <a name="built-with"></a>
 
